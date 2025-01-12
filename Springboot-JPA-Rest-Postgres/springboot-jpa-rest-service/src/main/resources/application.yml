@@ -1,0 +1,75 @@
+server:
+  port: 9081
+  forward-headers-strategy: framework
+spring:
+  application:
+    name: springboot-jpa-rest-service
+  sql:
+    init:
+      mode: always
+  jpa:
+    open-in-view : false #open session in view
+    database: POSTGRESQL
+    show-sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          batch_size: 20
+        generate_statistics: true
+        order_inserts: true
+          #dialect: org.hibernate.dialect.PostgreSQLDialect
+          #default_schema: public
+          #type:
+        #json_format_mapper: com.biswamit.springboot.jpa.rest.db.type.PropertyFormatMapper
+  datasource:
+    #platform: postgres
+    url: jdbc:postgresql://localhost:5432/springboot-jpa-rest-db
+    username: postgres
+    password: Welcome1234
+    hikari: #HIkariCP Config
+      pool-name: HikariPool-Timescaledb
+      maximum-pool-size: 50 #default is 10
+      minimum-idle: 25 #default is 10
+      connection-timeout: 90000 #90sec.default is 30sec
+      idle-timeout: 600000 #10min.default is 10 minutes
+      max-lifetime: 1800000 #30min.default is 30 minutes
+      leak-detection-threshold: 40000 #40sec.default is 2 seconds
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+      #format:
+      #date-time: yyyy-MM-dd HH:mm:ss.SSSzz
+springdoc:
+  packagesToScan: com.biswamit.springboot.jpa.rest.controller
+  pathsToMatch: /api/jpa/**
+  api-docs:
+    path: /v1/jpa-service-rest-api-docs
+  swagger-ui:
+    path: /swagger-ui-jpa-rest-service.html
+    operationsSorter: method
+#Management endpoint
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+logging:
+  level:
+    root: WARN
+    org.springframework: DEBUG
+    com.biswamit.springboot: DEBUG
+    zaxxer.hikari: TRACE
+    zaxxer.hikari.HikariConfig: DEBUG

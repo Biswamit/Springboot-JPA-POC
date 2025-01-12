@@ -1,0 +1,35 @@
+global:
+  scrape_interval:     15s # Default scrape interval
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
+rule_files:
+# - "first_rules.yml"
+# - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  - job_name: 'prometheus' # Job to scrape Prometheus metrics
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'sb-jpa-rest-actuator'
+    metrics_path: '/actuator/prometheus' # Job to scrape application metrics
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['192.168.1.2:9081']
+        labels:
+          application: 'SB JPA Rest Application'
+
+  - job_name: 'postgres-actuator'
+    metrics_path: '/metrics' # Job to scrape application metrics
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['192.168.1.2:9187']
+    relabel_configs:
+      - source_labels: [ __address__ ]
+        target_label: __param_target
+      - source_labels: [ __param_target ]
+        target_label: instance
+      - target_label: __address__
+        replacement: 192.168.1.2:9187  # The postgres exporter's real hostname:port.

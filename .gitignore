@@ -1,0 +1,5 @@
+*.log
+/Springboot-JPA-Rest-Postgres/docker/springboot-jpa-rest-service-0.0.1-SNAPSHOT.jar
+Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/docker/springboot-jpa-rest-service-0.0.1-SNAPSHOT.jar
+/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/target/
+/Springboot-JPA-Rest-Postgres/docker/postgresql.jpa.rest.service.db.volume/

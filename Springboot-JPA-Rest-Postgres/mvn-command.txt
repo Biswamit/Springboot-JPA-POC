@@ -1,0 +1,14 @@
+mvn -N wrapper:wrapper -Dmaven=3.6.3
+
+docker compose -f docker-compose.yml up -d
+
+#Database springboot-al-db
+Step1 - Create springboot-al-db in Postgres
+##Commends
+sudo -i -u postgres
+psql
+\c springboot-al-db
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+SELECT uuid_generate_v4();
+\q
+exit
