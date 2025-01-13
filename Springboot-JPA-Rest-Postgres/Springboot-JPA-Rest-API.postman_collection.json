@@ -50,7 +50,7 @@
 											}
 										],
 										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees/0df294cc-8ab6-4957-821e-eaf1250cbf9e",
+											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees/2e3a69da-8df2-4761-90e8-08ac7b9145cf",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -62,7 +62,7 @@
 												"uni",
 												"sharedpk",
 												"otoemployees",
-												"0df294cc-8ab6-4957-821e-eaf1250cbf9e"
+												"2e3a69da-8df2-4761-90e8-08ac7b9145cf"
 											]
 										}
 									},
@@ -125,7 +125,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"employeeFName\": \"TestFUniSharedPk\",\n  \"employeeLName\": \"TestLUniSharedPk\"\n}",
+											"raw": "{\n  \"employeeFName\": \"TFUniSharedPkSep\",\n  \"employeeLName\": \"TUniSharedPkSep\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -256,7 +256,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"autoId\": 4,\n  \"address\": \"TestAddressUniSharedPk\"\n}",
+											"raw": "{\n  \"autoId\": 4,\n  \"address\": \"TAddressUniSharedPkSep\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -276,6 +276,65 @@
 												"uni",
 												"sharedpk",
 												"otoaddresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Emp-Address-Insert",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"address\" :{\n    \"address\" : \"TAddressUniSharedPKBoth\"\n  },\n  \"employeeFName\": \"TFUniSharedPKBoth\",\n  \"employeeLName\": \"TLUniSharedPKBoth\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoaddresseswemployee",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9081",
+											"path": [
+												"api",
+												"jpa",
+												"uni",
+												"sharedpk",
+												"otoaddresseswemployee"
 											]
 										}
 									},
@@ -363,7 +422,7 @@
 									"response": []
 								},
 								{
-									"name": "Emp-Insert",
+									"name": "Emp-Address-Insert",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -396,7 +455,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"address\" :{\n    \"address\" : \"TestAddressBiSharedPK\"\n  },\n  \"employeeFName\": \"TestFBiSharedPK\",\n  \"employeeLName\": \"TestLBiSharedPK\"\n}",
+											"raw": "{\n  \"employeeFName\": \"TFBiSharedPKBoth\",\n  \"employeeLName\": \"TLBiSharedPKBoth\",\n  \"address\" :{\n    \"address\" : \"TAddressBiSharedPKBoth\"\n  }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -475,65 +534,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoaddresses"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Addr-Insert",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"autoId\": 4,\n  \"employeeFName\": \"TestF\",\n  \"employeeLName\": \"TestL\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoaddresses",
 											"protocol": "http",

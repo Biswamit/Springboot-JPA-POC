@@ -1,6 +1,9 @@
 package com.biswamit.springboot.jpa.rest.controller;
 
 import com.biswamit.springboot.annotation.LogExecutionTime;
+import com.biswamit.springboot.jpa.rest.model.EmployeeAddressModel;
+import com.biswamit.springboot.jpa.rest.model.o2o.bi.sharedpk.O2OAddressBiSharedPkNoParentFetch;
+import com.biswamit.springboot.jpa.rest.model.o2o.bi.sharedpk.O2OEmployeeBiSharedPkChildFetch;
 import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.O2OAddressUniSharedPkParentFetch;
 import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.O2OEmployeeUniSharedPkNoChildFetch;
 import com.biswamit.springboot.jpa.rest.service.EmployeeAddressService;
@@ -242,5 +245,35 @@ public class SpringbootJpaRestO2OUniSharedPkController {
     public ResponseEntity<O2OEmployeeUniSharedPkNoChildFetch> deleteUniSharedPkO2OEmployee(@RequestBody O2OEmployeeUniSharedPkNoChildFetch employee) {
         O2OEmployeeUniSharedPkNoChildFetch deletedEmployee = (O2OEmployeeUniSharedPkNoChildFetch) o2OUniSharedPkEmployeeService.deleteByAutoId(employee.getAutoId());
         return new ResponseEntity<>(deletedEmployee, HttpStatus.OK);
+    }
+
+    /**
+     * Save O2OAddressUniSharedPkParentFetch address with O2OEmployeeUniSharedPkNoChildFetch employee in one go
+     *
+     * @
+     */
+    @Operation(summary = "Create a O2OEmployeeUniSharedPkNoChildFetch employee and O2OAddressUniSharedPkParentFetch in one go")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Created the o2OAddressUniSharedPkParentFetch with o2OEmployeeUniSharedPkNoChildFetch",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = O2OEmployeeUniSharedPkNoChildFetch.class))}),
+            @ApiResponse(responseCode = "400", description = "Invalid o2OAddressUniSharedPkParentFetch with o2OEmployeeUniSharedPkNoChildFetch supplied",
+                    content = @Content)})
+    @PostMapping(value = {"otoaddresseswithemployee"}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
+    @LogExecutionTime
+    @Transactional
+    public ResponseEntity<O2OAddressUniSharedPkParentFetch> createUniSharedPkO2OEmployeeWithAddress(@RequestBody EmployeeAddressModel employeeAddressModel) {
+        ZonedDateTime zonedDateTimeNow = ZonedDateTime.now();
+        O2OAddressUniSharedPkParentFetch address = O2OAddressUniSharedPkParentFetch.builder()
+                .address(employeeAddressModel.getAddress().getAddress()).createdTime(zonedDateTimeNow).build();
+        O2OEmployeeUniSharedPkNoChildFetch employee = O2OEmployeeUniSharedPkNoChildFetch.builder().employeeId(UUID.randomUUID())
+                .employeeFName(employeeAddressModel.getEmployeeFName()).employeeLName(employeeAddressModel.getEmployeeLName())
+                .createdTime(zonedDateTimeNow).build();
+        O2OEmployeeUniSharedPkNoChildFetch savedEmployee = (O2OEmployeeUniSharedPkNoChildFetch) o2OUniSharedPkEmployeeService.save(employee);
+        address.setAutoId(savedEmployee.getAutoId());
+        address.setO2OEmployeeUniSharedPkNoChildFetch(savedEmployee);
+        O2OAddressUniSharedPkParentFetch savedAddress = (O2OAddressUniSharedPkParentFetch) o2OUniSharedPkAddressService.save(address);
+        return new ResponseEntity<>(savedAddress, HttpStatus.CREATED);
     }
 }
