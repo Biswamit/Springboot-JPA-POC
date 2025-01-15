@@ -1,4 +1,4 @@
-package com.biswamit.springboot.jpa.rest.model.o2o.bi.sharedpk;
+package com.biswamit.springboot.jpa.rest.model.o2o.bi.parentfk.p2c;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -6,7 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 import org.hibernate.annotations.TimeZoneStorage;
 import org.hibernate.annotations.TimeZoneStorageType;
@@ -20,10 +23,10 @@ import java.time.ZonedDateTime;
 @Entity
 @Jacksonized
 //@ToString(exclude = {"o2OBiSharedPkEmployee"})
-@Table(name = "oto_address_table")
+@Table(name = "oto_p2c_bi_pfk_address_table")
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 //@ConverterRegistration(converter = ZdtPropertyConverter.class,autoApply = true)
-public class O2OAddressBiSharedPkNoParentFetch {
+public class O2OP2CAddressBiParentFk {
 
     @JsonProperty("autoId")
     @Id
@@ -32,7 +35,7 @@ public class O2OAddressBiSharedPkNoParentFetch {
     private Long autoId;
 
     @JsonProperty("address")
-    @Size(min = 3, max = 128, message = "O2OAddressBiSharedPkNoParentFetch address length should be between 3 and 128 characters")
+    @Size(min = 3, max = 128, message = "O2OP2CAddressBiSharedPk address length should be between 3 and 128 characters")
     @Column(name = "address", unique = false, nullable = false)
     private String address;
 
@@ -54,7 +57,6 @@ public class O2OAddressBiSharedPkNoParentFetch {
     private ZonedDateTime updatedTime;
 
     @JsonBackReference
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "auto_id",referencedColumnName="auto_id")
-    private O2OEmployeeBiSharedPkChildFetch o2OBiSharedPkEmployee;
+    @OneToOne(mappedBy = "o2OP2CAddressBiParentFk")
+    private O2OP2CEmployeeBiParentFk o2OP2CEmployeeBiParentFk;
 }

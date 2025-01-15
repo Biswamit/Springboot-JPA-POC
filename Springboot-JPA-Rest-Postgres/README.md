@@ -30,6 +30,16 @@ TODO
 ```
 TODO
 ```
+## SB JPA Rest example showing JPA relationship for the use cases
+O2O-P2C-Unidirectional-With-Shared-Primary-Key
+![O2O-P2C-Unidirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-C2P-Uni-Spk----Employee-AddressTable.png)
+O2O-P2C-Bidirectional-With-Shared-Primary-Key
+![O2O-C2P-Unidirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-C2P-Uni-Spk----Employee-AddressTable.png)
+O2O-P2C-Unidirectional-With-Shared-Primary-Key
+![O2O-P2C-Biirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-P2C-Bi-Spk----Employee-AddressTable.png)
+O2O-P2C-Bidirectional-With-Parent-Foreign-Key
+![O2O-P2C-Bidirectional-With-Parent-Foreign-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-P2C-Bi-Pfk----Employee-AddressTable.png)
+
 ### Checkout code Springboot-JPA-POC and go to the folder
 ```
 cd Springboot-JPA-POC
@@ -68,8 +78,7 @@ Note : docker-create.sh -m stand for mode and it supports the following
 * > 4701 - JVM Micrometer
 * > 12900 - SB APM Dashboard
 * > 14114 - PG Exporter
-* > 6102 - Postgresql table
-* >  19004 - SB 3.x Stats
+* > 19004 - SB 3.x Stats
 * Springboot JPA Rest Service Actuator. Navigate to http://localhost:9081/actuator
 * Springboot JPA Rest Service Swagger. Navigate to http://localhost:9081/swagger-ui/index.html#/
 * Use Postman to open Spring-boot-AL-Rest-API.postman_collection.json and hit the API to get the data

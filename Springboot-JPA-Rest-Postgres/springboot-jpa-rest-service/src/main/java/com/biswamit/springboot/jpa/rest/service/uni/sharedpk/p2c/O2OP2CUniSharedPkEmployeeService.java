@@ -1,4 +1,4 @@
-package com.biswamit.springboot.jpa.rest.service.uni.sharedpk;
+package com.biswamit.springboot.jpa.rest.service.uni.sharedpk.p2c;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface O2OUniSharedPkEmployeeService<T, EmployeeAutoId> {
+public interface O2OP2CUniSharedPkEmployeeService<T, EmployeeAutoId> {
 
     Optional<T> getByAutoId(EmployeeAutoId autoId);
 

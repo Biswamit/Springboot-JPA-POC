@@ -1,9 +1,9 @@
-package com.biswamit.springboot.jpa.rest.service.uni.sharedpk;
+package com.biswamit.springboot.jpa.rest.service.uni.sharedpk.c2p;
 
-import com.biswamit.springboot.jpa.rest.db.repository.o2o.uni.sharedpk.O2OUniSharedPkAddressRepository;
+import com.biswamit.springboot.jpa.rest.db.repository.o2o.uni.sharedpk.c2p.O2OC2PUniSharedPkAddressRepository;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestErrorCode;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestNotFoundException;
-import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.O2OAddressUniSharedPkParentFetch;
+import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.c2p.O2OC2PAddressUniSharedPk;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddressService<O2OAddressUniSharedPkParentFetch, Long> {
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OUniSharedPkAddressService.class);
-    private O2OUniSharedPkAddressRepository addressRepository;
+public class DefaultO2OC2PUniSharedPkAddressService implements O2OC2PUniSharedPkAddressService<O2OC2PAddressUniSharedPk, Long> {
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OC2PUniSharedPkAddressService.class);
+    private O2OC2PUniSharedPkAddressRepository addressRepository;
 
     @Autowired
-    public DefaultO2OUniSharedPkAddressService(O2OUniSharedPkAddressRepository addressRepository) {
+    public DefaultO2OC2PUniSharedPkAddressService(O2OC2PUniSharedPkAddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
 
@@ -29,7 +29,7 @@ public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddres
      * @return
      */
     @Override
-    public Optional<O2OAddressUniSharedPkParentFetch> getByEmployeeAutoId(Long autoId) {
+    public Optional<O2OC2PAddressUniSharedPk> getByEmployeeAutoId(Long autoId) {
         LOG.debug("Returning address with autoId {}", autoId);
         return Optional.ofNullable(addressRepository.findByAutoId(autoId).orElseThrow(() -> new JpaRestNotFoundException(String.format(JpaRestErrorCode.EmployeeNotFound.getMessage(), autoId))));
     }
@@ -39,9 +39,9 @@ public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddres
      * @return
      */
     @Override
-    public Page<O2OAddressUniSharedPkParentFetch> getAllAddress(Pageable pageable) {
+    public Page<O2OC2PAddressUniSharedPk> getAllAddress(Pageable pageable) {
         LOG.debug("Returning all addresses");
-        Page<O2OAddressUniSharedPkParentFetch> addressPage = addressRepository.findAll(pageable);
+        Page<O2OC2PAddressUniSharedPk> addressPage = addressRepository.findAll(pageable);
         if (addressPage.isEmpty()) {
             throw new JpaRestNotFoundException(JpaRestErrorCode.AddressNotFound);
         }
@@ -54,9 +54,9 @@ public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddres
      * @return
      */
     @Override
-    public O2OAddressUniSharedPkParentFetch save(O2OAddressUniSharedPkParentFetch address) {
+    public O2OC2PAddressUniSharedPk save(O2OC2PAddressUniSharedPk address) {
         LOG.debug("Saving address {}", address);
-        O2OAddressUniSharedPkParentFetch savedAddress = addressRepository.save(address);
+        O2OC2PAddressUniSharedPk savedAddress = addressRepository.save(address);
         return savedAddress;
     }
 
@@ -65,9 +65,9 @@ public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddres
      * @return
      */
     @Override
-    public List<O2OAddressUniSharedPkParentFetch> saveAll(List<O2OAddressUniSharedPkParentFetch> addresses) {
+    public List<O2OC2PAddressUniSharedPk> saveAll(List<O2OC2PAddressUniSharedPk> addresses) {
         LOG.debug("Saving addresses {}", addresses);
-        List<O2OAddressUniSharedPkParentFetch> savedAddresses = addressRepository.saveAll(addresses);
+        List<O2OC2PAddressUniSharedPk> savedAddresses = addressRepository.saveAll(addresses);
         return savedAddresses;
     }
 
@@ -76,9 +76,9 @@ public class DefaultO2OUniSharedPkAddressService implements O2OUniSharedPkAddres
      * @return
      */
     @Override
-    public O2OAddressUniSharedPkParentFetch deleteByAutoId(Long autoId) {
+    public O2OC2PAddressUniSharedPk deleteByAutoId(Long autoId) {
         LOG.debug("Deleting address with autoId {}", autoId);
-        O2OAddressUniSharedPkParentFetch deletedAddress = addressRepository.deleteByAutoId(autoId);
+        O2OC2PAddressUniSharedPk deletedAddress = addressRepository.deleteByAutoId(autoId);
         return deletedAddress;
     }
 

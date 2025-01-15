@@ -1,9 +1,9 @@
-package com.biswamit.springboot.jpa.rest.service.bi.sharedpk;
+package com.biswamit.springboot.jpa.rest.service.bi.sharedpk.p2c;
 
-import com.biswamit.springboot.jpa.rest.db.repository.o2o.bi.sharedpk.O2OBiSharedPkAddressRepository;
+import com.biswamit.springboot.jpa.rest.db.repository.o2o.bi.sharedpk.p2c.O2OP2CBiSharedPkAddressRepository;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestErrorCode;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestNotFoundException;
-import com.biswamit.springboot.jpa.rest.model.o2o.bi.sharedpk.O2OAddressBiSharedPkNoParentFetch;
+import com.biswamit.springboot.jpa.rest.model.o2o.bi.sharedpk.p2c.O2OP2CAddressBiSharedPk;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressService<O2OAddressBiSharedPkNoParentFetch, Long> {
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OBiSharedPkAddressService.class);
-    private O2OBiSharedPkAddressRepository addressRepository;
+public class DefaultO2OP2CBiSharedPkAddressService implements O2OP2CBiSharedPkAddressService<O2OP2CAddressBiSharedPk, Long> {
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OP2CBiSharedPkAddressService.class);
+    private O2OP2CBiSharedPkAddressRepository addressRepository;
 
     @Autowired
-    public DefaultO2OBiSharedPkAddressService(O2OBiSharedPkAddressRepository addressRepository) {
+    public DefaultO2OP2CBiSharedPkAddressService(O2OP2CBiSharedPkAddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
 
@@ -29,7 +29,7 @@ public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressS
      * @return
      */
     @Override
-    public Optional<O2OAddressBiSharedPkNoParentFetch> getByEmployeeAutoId(Long autoId) {
+    public Optional<O2OP2CAddressBiSharedPk> getByEmployeeAutoId(Long autoId) {
         LOG.debug("Returning address with autoId {}", autoId);
         return Optional.ofNullable(addressRepository.findByAutoId(autoId).orElseThrow(() -> new JpaRestNotFoundException(String.format(JpaRestErrorCode.AddressNotFound.getMessage(), autoId))));
     }
@@ -39,9 +39,9 @@ public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressS
      * @return
      */
     @Override
-    public Page<O2OAddressBiSharedPkNoParentFetch> getAllAddress(Pageable pageable) {
+    public Page<O2OP2CAddressBiSharedPk> getAllAddress(Pageable pageable) {
         LOG.debug("Returning all addresses");
-        Page<O2OAddressBiSharedPkNoParentFetch> addressPage = addressRepository.findAll(pageable);
+        Page<O2OP2CAddressBiSharedPk> addressPage = addressRepository.findAll(pageable);
         if (addressPage.isEmpty()) {
             throw new JpaRestNotFoundException(JpaRestErrorCode.AddressNotFound);
         }
@@ -54,9 +54,9 @@ public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressS
      * @return
      */
     @Override
-    public O2OAddressBiSharedPkNoParentFetch save(O2OAddressBiSharedPkNoParentFetch address) {
+    public O2OP2CAddressBiSharedPk save(O2OP2CAddressBiSharedPk address) {
         LOG.debug("Saving address {}", address);
-        O2OAddressBiSharedPkNoParentFetch savedAddress = addressRepository.save(address);
+        O2OP2CAddressBiSharedPk savedAddress = addressRepository.save(address);
         return savedAddress;
     }
 
@@ -65,9 +65,9 @@ public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressS
      * @return
      */
     @Override
-    public List<O2OAddressBiSharedPkNoParentFetch> saveAll(List<O2OAddressBiSharedPkNoParentFetch> addresses) {
+    public List<O2OP2CAddressBiSharedPk> saveAll(List<O2OP2CAddressBiSharedPk> addresses) {
         LOG.debug("Saving addresses {}", addresses);
-        List<O2OAddressBiSharedPkNoParentFetch> savedAddresses = addressRepository.saveAll(addresses);
+        List<O2OP2CAddressBiSharedPk> savedAddresses = addressRepository.saveAll(addresses);
         return savedAddresses;
     }
 
@@ -76,9 +76,9 @@ public class DefaultO2OBiSharedPkAddressService implements O2OBiSharedPkAddressS
      * @return
      */
     @Override
-    public O2OAddressBiSharedPkNoParentFetch deleteByAutoId(Long autoId) {
+    public O2OP2CAddressBiSharedPk deleteByAutoId(Long autoId) {
         LOG.debug("Deleting address with autoId {}", autoId);
-        O2OAddressBiSharedPkNoParentFetch deletedAddress = addressRepository.deleteByAutoId(autoId);
+        O2OP2CAddressBiSharedPk deletedAddress = addressRepository.deleteByAutoId(autoId);
         return deletedAddress;
     }
 

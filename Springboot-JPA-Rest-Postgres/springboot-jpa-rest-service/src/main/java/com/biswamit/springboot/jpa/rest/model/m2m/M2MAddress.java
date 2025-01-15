@@ -35,7 +35,7 @@ public class M2MAddress {
     private Long autoId;
 
     @JsonProperty("address")
-    @Size(min = 3, max = 128, message = "O2OAddressUniSharedPkParentFetch address length should be between 3 and 128 characters")
+    @Size(min = 3, max = 128, message = "O2OC2PAddressUniSharedPk address length should be between 3 and 128 characters")
     @Column(name = "address", unique = false, nullable = true)
     private String address;
 

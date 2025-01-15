@@ -1,6 +1,6 @@
 package com.biswamit.springboot.jpa.rest.db.type;
 
-import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.O2OEmployeeUniSharedPkNoChildFetch;
+import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.c2p.O2OC2PEmployeeUniSharedPk;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.hibernate.HibernateException;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.time.ZonedDateTime;
 
-public class TimestampTZType implements UserType<O2OEmployeeUniSharedPkNoChildFetch> {
+public class TimestampTZType implements UserType<O2OC2PEmployeeUniSharedPk> {
     private static final Logger LOG = LoggerFactory.getLogger(TimestampTZType.class);
     public static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -28,22 +28,22 @@ public class TimestampTZType implements UserType<O2OEmployeeUniSharedPkNoChildFe
     }
 
     @Override
-    public Class<O2OEmployeeUniSharedPkNoChildFetch> returnedClass() {
-        return O2OEmployeeUniSharedPkNoChildFetch.class;
+    public Class<O2OC2PEmployeeUniSharedPk> returnedClass() {
+        return O2OC2PEmployeeUniSharedPk.class;
     }
 
     @Override
-    public boolean equals(O2OEmployeeUniSharedPkNoChildFetch O2OEmployeeUniSharedPkNoChildFetch, O2OEmployeeUniSharedPkNoChildFetch j1) {
+    public boolean equals(O2OC2PEmployeeUniSharedPk O2OC2PEmployeeUniSharedPk, O2OC2PEmployeeUniSharedPk j1) {
         return false;
     }
 
     @Override
-    public int hashCode(O2OEmployeeUniSharedPkNoChildFetch O2OEmployeeUniSharedPkNoChildFetch) {
+    public int hashCode(O2OC2PEmployeeUniSharedPk O2OC2PEmployeeUniSharedPk) {
         return 0;
     }
 
     @Override
-    public O2OEmployeeUniSharedPkNoChildFetch nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner)
+    public O2OC2PEmployeeUniSharedPk nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner)
             throws HibernateException, SQLException {
         /*try {
             OffsetDateTime offsetDateTime = rs.getObject(position, OffsetDateTime.class);
@@ -64,13 +64,13 @@ public class TimestampTZType implements UserType<O2OEmployeeUniSharedPkNoChildFe
             MAPPER.registerModule(new SimpleModule().addDeserializer(ZonedDateTime.class, new ZoneDateTimeDeserializer(true)));
             return MAPPER.readValue(cellContent.getBytes(StandardCharsets.UTF_8), returnedClass());
         } catch (final Exception exp) {
-            LOG.error("Failed to convert String to O2OEmployeeUniSharedPkNoChildFetch : " + exp.getMessage(), exp);
-            throw new RuntimeException("Failed to convert String to O2OEmployeeUniSharedPkNoChildFetch : " + exp.getMessage(), exp);
+            LOG.error("Failed to convert String to O2OC2PEmployeeUniSharedPk : " + exp.getMessage(), exp);
+            throw new RuntimeException("Failed to convert String to O2OC2PEmployeeUniSharedPk : " + exp.getMessage(), exp);
         }
     }
 
     @Override
-    public void nullSafeSet(PreparedStatement st, O2OEmployeeUniSharedPkNoChildFetch value, int index, SharedSessionContractImplementor session)
+    public void nullSafeSet(PreparedStatement st, O2OC2PEmployeeUniSharedPk value, int index, SharedSessionContractImplementor session)
             throws HibernateException, SQLException {
         /*try {
 
@@ -102,15 +102,15 @@ public class TimestampTZType implements UserType<O2OEmployeeUniSharedPkNoChildFe
             writer.flush();
             st.setObject(index, writer.toString(), Types.OTHER);
         } catch (final Exception exp) {
-            LOG.error("Failed to convert O2OEmployeeUniSharedPkNoChildFetch to String: " + exp.getMessage(), exp);
-            throw new RuntimeException("Failed to convert O2OEmployeeUniSharedPkNoChildFetch to String: " + exp.getMessage(), exp);
+            LOG.error("Failed to convert O2OC2PEmployeeUniSharedPk to String: " + exp.getMessage(), exp);
+            throw new RuntimeException("Failed to convert O2OC2PEmployeeUniSharedPk to String: " + exp.getMessage(), exp);
         }
 
     }
 
     @Override
-    public O2OEmployeeUniSharedPkNoChildFetch deepCopy(O2OEmployeeUniSharedPkNoChildFetch O2OEmployeeUniSharedPkNoChildFetch) {
-        return O2OEmployeeUniSharedPkNoChildFetch;
+    public O2OC2PEmployeeUniSharedPk deepCopy(O2OC2PEmployeeUniSharedPk O2OC2PEmployeeUniSharedPk) {
+        return O2OC2PEmployeeUniSharedPk;
     }
 
 
@@ -120,13 +120,13 @@ public class TimestampTZType implements UserType<O2OEmployeeUniSharedPkNoChildFe
     }
 
     @Override
-    public Serializable disassemble(O2OEmployeeUniSharedPkNoChildFetch O2OEmployeeUniSharedPkNoChildFetch) {
-        return (Serializable) O2OEmployeeUniSharedPkNoChildFetch;
+    public Serializable disassemble(O2OC2PEmployeeUniSharedPk O2OC2PEmployeeUniSharedPk) {
+        return (Serializable) O2OC2PEmployeeUniSharedPk;
     }
 
     @Override
-    public O2OEmployeeUniSharedPkNoChildFetch assemble(Serializable serializable, Object o) {
-        return (O2OEmployeeUniSharedPkNoChildFetch) serializable;
+    public O2OC2PEmployeeUniSharedPk assemble(Serializable serializable, Object o) {
+        return (O2OC2PEmployeeUniSharedPk) serializable;
     }
 
 

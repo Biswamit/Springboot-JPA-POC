@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2021 McAfee, LLC  All Rights Reserved.
  */
-package com.biswamit.springboot.jpa.rest.service.uni.sharedpk;
+package com.biswamit.springboot.jpa.rest.service.uni.sharedpk.p2c;
 
-import com.biswamit.springboot.jpa.rest.db.repository.o2o.uni.sharedpk.O2OUniSharedPkEmployeeRepository;
+import com.biswamit.springboot.jpa.rest.db.repository.o2o.uni.sharedpk.p2c.O2OP2CUniSharedPkEmployeeRepository;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestErrorCode;
 import com.biswamit.springboot.jpa.rest.exception.JpaRestNotFoundException;
-import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.O2OEmployeeUniSharedPkNoChildFetch;
+import com.biswamit.springboot.jpa.rest.model.o2o.uni.sharedpk.p2c.O2OP2CEmployeeUniSharedPk;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmployeeService<O2OEmployeeUniSharedPkNoChildFetch, Long> {
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OUniSharedPkEmployeeService.class);
-    private O2OUniSharedPkEmployeeRepository employeeRepository;
+public class DefaultO2OP2CUniSharedPkEmployeeService implements O2OP2CUniSharedPkEmployeeService<O2OP2CEmployeeUniSharedPk, Long> {
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultO2OP2CUniSharedPkEmployeeService.class);
+    private O2OP2CUniSharedPkEmployeeRepository employeeRepository;
 
     @Autowired
-    public DefaultO2OUniSharedPkEmployeeService(O2OUniSharedPkEmployeeRepository employeeRepository) {
+    public DefaultO2OP2CUniSharedPkEmployeeService(O2OP2CUniSharedPkEmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
@@ -33,10 +33,10 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public Optional<O2OEmployeeUniSharedPkNoChildFetch> getByAutoId(Long autoId) {
+    public Optional<O2OP2CEmployeeUniSharedPk> getByAutoId(Long autoId) {
         LOG.debug("Returning employee with autoId {}", autoId);
         return Optional.ofNullable(employeeRepository.findByAutoId(autoId).orElseThrow(() -> new JpaRestNotFoundException(String.format(JpaRestErrorCode.EmployeeNotFound.getMessage(), autoId))));
-        /*return O2OEmployeeUniSharedPkNoChildFetch.builder().autoId(product.getAutoId()).productId(product.getProductId())
+        /*return O2OP2CEmployeeUniSharedPk.builder().autoId(product.getAutoId()).productId(product.getProductId())
                         .createdTime(auditLog.getCreatedTime()).updatedTIme(auditLog.getUpdatedTime())).build();*/
     }
 
@@ -46,10 +46,10 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public Optional<O2OEmployeeUniSharedPkNoChildFetch> getByEmployeeIdAndAutoId(UUID employeeId, Long autoId) {
+    public Optional<O2OP2CEmployeeUniSharedPk> getByEmployeeIdAndAutoId(UUID employeeId, Long autoId) {
         LOG.debug("Returning employee with employeeId {} and autoId {}", employeeId, autoId);
         return Optional.ofNullable(employeeRepository.findByEmployeeIdAndAutoId(employeeId, autoId).orElseThrow(() -> new JpaRestNotFoundException(String.format(JpaRestErrorCode.EmployeeNotFound.getMessage(), autoId))));
-        /*return O2OEmployeeUniSharedPkNoChildFetch.builder().autoId(product.getAutoId()).productId(product.getProductId())
+        /*return O2OP2CEmployeeUniSharedPk.builder().autoId(product.getAutoId()).productId(product.getProductId())
                         .createdTime(auditLog.getCreatedTime()).updatedTIme(auditLog.getUpdatedTime())).build();*/
     }
 
@@ -58,9 +58,9 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public Page<O2OEmployeeUniSharedPkNoChildFetch> getAllEmployees(Pageable pageable) {
+    public Page<O2OP2CEmployeeUniSharedPk> getAllEmployees(Pageable pageable) {
         LOG.debug("Returning all employees");
-        Page<O2OEmployeeUniSharedPkNoChildFetch> productPage = employeeRepository.findAll(pageable);
+        Page<O2OP2CEmployeeUniSharedPk> productPage = employeeRepository.findAll(pageable);
         if (productPage.isEmpty()) {
             throw new JpaRestNotFoundException(JpaRestErrorCode.EmployeeNotFound);
         }
@@ -72,9 +72,9 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public O2OEmployeeUniSharedPkNoChildFetch save(O2OEmployeeUniSharedPkNoChildFetch employee) {
+    public O2OP2CEmployeeUniSharedPk save(O2OP2CEmployeeUniSharedPk employee) {
         LOG.debug("Saving employee {}", employee);
-        O2OEmployeeUniSharedPkNoChildFetch savedEmployee = employeeRepository.save(employee);
+        O2OP2CEmployeeUniSharedPk savedEmployee = employeeRepository.save(employee);
         return savedEmployee;
     }
 
@@ -83,9 +83,9 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public List<O2OEmployeeUniSharedPkNoChildFetch> saveAll(List<O2OEmployeeUniSharedPkNoChildFetch> employees) {
+    public List<O2OP2CEmployeeUniSharedPk> saveAll(List<O2OP2CEmployeeUniSharedPk> employees) {
         LOG.debug("Saving employees {}", employees);
-        List<O2OEmployeeUniSharedPkNoChildFetch> savedEmployees = employeeRepository.saveAll(employees);
+        List<O2OP2CEmployeeUniSharedPk> savedEmployees = employeeRepository.saveAll(employees);
         return savedEmployees;
     }
 
@@ -94,9 +94,9 @@ public class DefaultO2OUniSharedPkEmployeeService implements O2OUniSharedPkEmplo
      * @return
      */
     @Override
-    public O2OEmployeeUniSharedPkNoChildFetch deleteByAutoId(Long autoId) {
+    public O2OP2CEmployeeUniSharedPk deleteByAutoId(Long autoId) {
         LOG.debug("Deleting employee with autoId {}", autoId);
-        O2OEmployeeUniSharedPkNoChildFetch deletedEmployee = employeeRepository.deleteByAutoId(autoId);
+        O2OP2CEmployeeUniSharedPk deletedEmployee = employeeRepository.deleteByAutoId(autoId);
         return deletedEmployee;
     }
 }

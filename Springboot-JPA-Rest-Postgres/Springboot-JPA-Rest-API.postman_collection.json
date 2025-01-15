@@ -16,329 +16,682 @@
 							"name": "UniSharedPK",
 							"item": [
 								{
-									"name": "Get-Emp-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoemployees",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Emp-EID",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees/2e3a69da-8df2-4761-90e8-08ac7b9145cf",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoemployees",
-												"2e3a69da-8df2-4761-90e8-08ac7b9145cf"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-All-Emp",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoemployees"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Emp-Insert",
-									"event": [
+									"name": "C2P",
+									"item": [
 										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"employeeFName\": \"TFUniSharedPkSep\",\n  \"employeeLName\": \"TUniSharedPkSep\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "Get-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoemployees/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoemployees",
+														"1"
+													]
 												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoemployees"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Addr-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoaddresses/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoaddresses",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Addr-By-Emp-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoemployees/1/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoemployees",
-												"1",
-												"otoaddresses"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-All-Address",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoaddresses"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Addr-Insert",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
+											},
+											"response": []
 										},
 										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
+											"name": "Get-Emp-EID",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
 												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"autoId\": 4,\n  \"address\": \"TAddressUniSharedPkSep\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoemployees/2e3a69da-8df2-4761-90e8-08ac7b9145cf",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoemployees",
+														"2e3a69da-8df2-4761-90e8-08ac7b9145cf"
+													]
 												}
-											}
+											},
+											"response": []
 										},
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
+										{
+											"name": "Get-All-Emp",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Emp-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
 											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoaddresses"
-											]
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"employeeFName\": \"TFUniSharedPkSep\",\n  \"employeeLName\": \"TUniSharedPkSep\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoaddresses/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoaddresses",
+														"1"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-By-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoemployees/1/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoemployees",
+														"1",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-All-Address",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Addr-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"autoId\": 4,\n  \"location\": \"TAddressUniSharedPkSep\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Emp-Address-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\" :{\n    \"location\" : \"TAddressUniSharedPKBoth\"\n  },\n  \"employeeFName\": \"TFUniSharedPKBoth\",\n  \"employeeLName\": \"TLUniSharedPKBoth\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/c2p/otoaddresseswithemployee",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"c2p",
+														"otoaddresseswithemployee"
+													]
+												}
+											},
+											"response": []
 										}
-									},
-									"response": []
+									]
 								},
 								{
-									"name": "Emp-Address-Insert",
-									"event": [
+									"name": "P2C",
+									"item": [
 										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"address\" :{\n    \"address\" : \"TAddressUniSharedPKBoth\"\n  },\n  \"employeeFName\": \"TFUniSharedPKBoth\",\n  \"employeeLName\": \"TLUniSharedPKBoth\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "Get-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoemployees/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"1"
+													]
 												}
-											}
+											},
+											"response": []
 										},
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/uni/sharedpk/otoaddresseswemployee",
-											"protocol": "http",
-											"host": [
-												"localhost"
+										{
+											"name": "Get-Emp-EID",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoemployees/2e3a69da-8df2-4761-90e8-08ac7b9145cf",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"2e3a69da-8df2-4761-90e8-08ac7b9145cf"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-All-Emp",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Emp-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
 											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"uni",
-												"sharedpk",
-												"otoaddresseswemployee"
-											]
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"employeeFName\": \"TFUniSharedPkSep\",\n  \"employeeLName\": \"TUniSharedPkSep\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoaddresses/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoaddresses",
+														"1"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-By-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoemployees/1/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"1",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-All-Address",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Addr-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"autoId\": 4,\n  \"location\": \"TAddressUniSharedPkSep\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Emp-Address-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\" :{\n    \"location\" : \"TAddressUniSharedPKBoth\"\n  },\n  \"employeeFName\": \"TFUniSharedPKBoth\",\n  \"employeeLName\": \"TLUniSharedPKBoth\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/uni/sharedpk/p2c/otoaddresseswithemployee",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"uni",
+														"sharedpk",
+														"p2c",
+														"otoaddresseswithemployee"
+													]
+												}
+											},
+											"response": []
 										}
-									},
-									"response": []
+									]
 								}
 							]
 						},
@@ -346,211 +699,223 @@
 							"name": "BiSharedPK",
 							"item": [
 								{
-									"name": "Get-Emp-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoemployees/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoemployees",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Emp-EID",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoemployees/0df294cc-8ab6-4957-821e-eaf1250cbf9e",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoemployees",
-												"0df294cc-8ab6-4957-821e-eaf1250cbf9e"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-All-Emp",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoemployees",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoemployees"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Emp-Address-Insert",
-									"event": [
+									"name": "P2C",
+									"item": [
 										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"employeeFName\": \"TFBiSharedPKBoth\",\n  \"employeeLName\": \"TLBiSharedPKBoth\",\n  \"address\" :{\n    \"address\" : \"TAddressBiSharedPKBoth\"\n  }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "Get-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoemployees/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"1"
+													]
 												}
-											}
+											},
+											"response": []
 										},
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoemployees",
-											"protocol": "http",
-											"host": [
-												"localhost"
+										{
+											"name": "Get-Emp-EID",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoemployees/0df294cc-8ab6-4957-821e-eaf1250cbf9e",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"0df294cc-8ab6-4957-821e-eaf1250cbf9e"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-All-Emp",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Emp-Address-Insert",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
 											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoemployees"
-											]
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"employeeFName\": \"TFBiSharedPKBoth\",\n  \"employeeLName\": \"TLBiSharedPKBoth\",\n  \"address\" :{\n    \"location\" : \"TAddressBiSharedPKBoth\"\n  }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoemployees",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoemployees"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoaddresses/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoaddresses",
+														"1"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-Addr-By-Emp-AID",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoemployees/1/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoemployees",
+														"1",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get-All-Address",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:9081/api/jpa/bi/sharedpk/p2c/otoaddresses",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9081",
+													"path": [
+														"api",
+														"jpa",
+														"bi",
+														"sharedpk",
+														"p2c",
+														"otoaddresses"
+													]
+												}
+											},
+											"response": []
 										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Addr-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoaddresses/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoaddresses",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-Addr-By-Emp-AID",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoemployees/1/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoemployees",
-												"1",
-												"otoaddresses"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get-All-Address",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:9081/api/jpa/bi/sharedpk/otoaddresses",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "9081",
-											"path": [
-												"api",
-												"jpa",
-												"bi",
-												"sharedpk",
-												"otoaddresses"
-											]
-										}
-									},
-									"response": []
+									]
 								}
 							]
 						}

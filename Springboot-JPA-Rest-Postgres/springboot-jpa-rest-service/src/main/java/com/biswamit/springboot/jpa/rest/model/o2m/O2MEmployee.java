@@ -36,24 +36,24 @@ public class O2MEmployee {
     //@UuidGenerator(style = UuidGenerator.Style.TIME)
     //@GeneratedValue(strategy = GenerationType.UUID)
     @JsonProperty("employeeId")
-    @NotBlank(message = "O2OEmployeeUniSharedPkNoChildFetch employeeId cannot be null or empty.")
+    @NotBlank(message = "O2OC2PEmployeeUniSharedPk employeeId cannot be null or empty.")
     @Size(min = 3, max = 64, message = "employee employeeId length should be between 3 and 64 characters")
     @Column(name = "employee_id", unique = false, nullable = false)
     private UUID employeeId;
 
     @JsonProperty("employeeFName")
-    @Size(min = 3, max = 128, message = "O2OEmployeeUniSharedPkNoChildFetch employeeFName length should be between 3 and 128 characters")
+    @Size(min = 3, max = 128, message = "O2OC2PEmployeeUniSharedPk employeeFName length should be between 3 and 128 characters")
     @Column(name = "employee_fname", unique = false, nullable = true)
     private String employeeFName;
 
     @JsonProperty("employeeLName")
-    @Size(min = 3, max = 128, message = "O2OEmployeeUniSharedPkNoChildFetch employeeLName length should be between 3 and 128 characters")
+    @Size(min = 3, max = 128, message = "O2OC2PEmployeeUniSharedPk employeeLName length should be between 3 and 128 characters")
     @Column(name = "employee_lname", unique = false, nullable = true)
     private String employeeLName;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSSzz")
     @JsonProperty("createdTime")
-    @NotBlank(message = "O2OEmployeeUniSharedPkNoChildFetch createdTime cannot be null or empty.")
+    @NotBlank(message = "O2OC2PEmployeeUniSharedPk createdTime cannot be null or empty.")
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE", name = "created_time", unique = false, nullable = false)
     //@Convert(converter = ZdtPropertyConverter.class)
     //@Type(TimestampTZType.class)
