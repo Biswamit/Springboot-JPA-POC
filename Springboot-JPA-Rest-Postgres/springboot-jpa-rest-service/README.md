@@ -26,6 +26,19 @@ TODO
 ```
 TODO
 ```
+## SB JPA Rest example showing JPA relationship for the use cases
+O2O-P2C-Unidirectional-With-Shared-Primary-Key
+![O2O-P2C-Unidirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-C2P-Uni-Spk----Employee-AddressTable.png)
+
+O2O-P2C-Bidirectional-With-Shared-Primary-Key
+![O2O-C2P-Unidirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-C2P-Uni-Spk----Employee-AddressTable.png)
+
+O2O-P2C-Unidirectional-With-Shared-Primary-Key
+![O2O-P2C-Biirectional-With-Shared-Primary-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-P2C-Bi-Spk----Employee-AddressTable.png)
+
+O2O-P2C-Bidirectional-With-Parent-Foreign-Key
+![O2O-P2C-Bidirectional-With-Parent-Foreign-Key](/Springboot-JPA-Rest-Postgres/springboot-jpa-rest-service/src/main/resources/static//O2O-P2C-Bi-Pfk----Employee-AddressTable.png)
+
 ### Checkout code Springboot-JPA-POC and go to the folder
 ```
 cd Springboot-JPA-POC
